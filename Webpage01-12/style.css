@@ -1,0 +1,36 @@
+body {
+    background-color: dimgrey;
+    color: white;
+    margin: 0;
+}
+
+header {
+    padding: 20px;
+    border: 1px gray dashed;
+    height: 50px;
+    background-color: #fff;
+}
+
+#logoBox {
+    float: left;
+}
+
+#logo {
+    height: 50px;
+}
+
+#menu-button {
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+
+#slider {
+    height: 66vh;
+    background-image: url("assets/spices.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+#heading {
+}
