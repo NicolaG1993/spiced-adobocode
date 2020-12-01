@@ -1,6 +1,10 @@
 body {
     background-color: dimgrey;
     color: white;
+    height: 100vh;
+}
+
+* {
     margin: 0;
 }
 
@@ -9,10 +13,13 @@ header {
     border: 1px gray dashed;
     height: 50px;
     background-color: #fff;
+    position: sticky;
+    top: 0;
 }
 
 #logoBox {
     float: left;
+    cursor: pointer;
 }
 
 #logo {
@@ -23,14 +30,84 @@ header {
     float: right;
     height: 50px;
     width: 50px;
+    cursor: pointer;
 }
 
 #slider {
-    height: 66vh;
+    height: 60vh;
     background-image: url("assets/spices.jpg");
     background-size: cover;
     text-align: center;
 }
 
 #heading {
+    position: relative;
+    top: 45%;
+}
+
+h1 {
+    font-size: 36pt;
+    font-weight: 600;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+}
+
+button {
+    margin: 10px;
+    padding: 5px 30px;
+    border: 4pt orange solid;
+    border-radius: 21pt;
+    background-color: yellow;
+    font-size: 25px;
+    font-weight: 600;
+    color: orange;
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
+}
+
+footer {
+    background-color: rgb(172, 172, 172);
+    height: 30vh;
+    padding: 70px 15vw 0 15vw;
+}
+
+footer > div > div {
+    width: 48%;
+    padding-bottom: 7vh;
+}
+
+footer > div > div:nth-child(odd) {
+    float: left;
+    padding-right: 2%;
+}
+
+footer > div > div:nth-child(even) {
+    float: right;
+}
+
+.icon {
+    width: 60px;
+    margin-top: 0;
+    margin-right: 2%;
+    display: inline;
+    position: relative;
+    top: -20px;
+}
+
+.text {
+    width: 85%;
+    display: inline-block;
+}
+
+h2 {
+    font-size: 28pt;
+}
+
+p {
+    font-size: 14pt;
+}
+
+::selection {
+    color: white;
+    background: orange;
 }
