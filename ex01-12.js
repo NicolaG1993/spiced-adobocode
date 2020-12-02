@@ -5,8 +5,11 @@ function logType(arg) {
     } else if (arg === null) {
         console.log("null!");
     } else if (typeof arg == "number") {
-        if (isNaN(arg)) console.log("not a number!");
-        else console.log("number!");
+        if (isNaN(arg)) {
+            console.log("not a number!");
+        } else {
+            console.log("number!");
+        }
     } else if (typeof arg == "string") {
         console.log("string!");
     } else if (typeof arg == "boolean") {
@@ -16,8 +19,11 @@ function logType(arg) {
     } else if (typeof arg == "function") {
         console.log("function!");
     } else if (typeof arg == "object") {
-        if (Array.isArray(arg)) console.log("array!");
-        else console.log("object!");
+        if (Array.isArray(arg)) {
+            console.log("array!");
+        } else {
+            console.log("object!");
+        }
     } else {
         console.log("I have no idea!");
     }
@@ -62,10 +68,17 @@ for (var property in a) {   //In my mind this was the logic answer, but doesn't 
 }
 */
 
+/*
 for (var property in a) {
     //I was lucky here, i don't really understand it
     b[a[property]] = property;
     a[property] = b[property.value];
+}
+*/
+
+for (var property in a) {
+    var value = a[property];
+    b[value] = property;
 }
 
 console.log(b);
