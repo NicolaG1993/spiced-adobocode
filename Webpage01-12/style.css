@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
     background-color: dimgrey;
     color: white;
@@ -8,6 +9,27 @@ body {
     margin: 0;
 }
 
+h1 {
+    font-size: 28pt;
+    font-weight: 600;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h2 {
+    font-size: 24pt;
+}
+
+p {
+    font-size: 12pt;
+}
+
+::selection {
+    color: white;
+    background: orange;
+}
+
+/* HEADER */
 header {
     padding: 20px;
     border: 1px gray dashed;
@@ -15,6 +37,7 @@ header {
     background-color: #fff;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 #logoBox {
@@ -33,6 +56,7 @@ header {
     cursor: pointer;
 }
 
+/* SLIDER */
 #slider {
     height: 66vh;
     background-image: url("assets/spices.jpg");
@@ -42,23 +66,16 @@ header {
 
 #heading {
     position: relative;
-    top: 45%;
-}
-
-h1 {
-    font-size: 36pt;
-    font-weight: 600;
-    font-style: italic;
-    font-family: "Times New Roman", Times, serif;
+    top: 40%;
 }
 
 button {
     margin: 10px;
     padding: 5px 30px;
-    border: 4pt orange solid;
+    border: 3pt orange solid;
     border-radius: 21pt;
     background-color: yellow;
-    font-size: 25px;
+    font-size: 21px;
     font-weight: 600;
     color: orange;
     font-family: "Times New Roman", Times, serif;
@@ -71,6 +88,7 @@ button:hover {
     transition: 0.3s;
 }
 
+/* FOOTER */
 footer {
     background-color: rgb(172, 172, 172);
     padding: 70px 15vw 0 15vw;
@@ -93,7 +111,7 @@ footer > div > div:nth-child(even) {
 }
 
 .icon {
-    width: 60px;
+    width: 50px;
     margin-top: 0;
     margin-right: 2%;
     display: inline;
@@ -102,19 +120,16 @@ footer > div > div:nth-child(even) {
 }
 
 .text {
-    width: 85%;
+    width: 80%;
     display: inline-block;
 }
 
-h2 {
-    font-size: 28pt;
+@media screen and (min-width: 601px) and (max-width: 800px) {
+    h1 {
+    }
 }
 
-p {
-    font-size: 14pt;
-}
-
-::selection {
-    color: white;
-    background: orange;
+@media (prefers-color-scheme: dark) {
+    h1 {
+    }
 }

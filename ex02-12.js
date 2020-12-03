@@ -4,7 +4,7 @@ function sum() {
     for (var index = 0; index < arguments.length; index++) {
         result += arguments[index];
     }
-    return result
+    return result;
 }
 
 console.log(sum(5, 10));
