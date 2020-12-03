@@ -4,12 +4,13 @@ function sum() {
     for (var index = 0; index < arguments.length; index++) {
         result += arguments[index];
     }
-    console.log(result);
+    return result
 }
 
-sum(5, 10);
-sum(5, 10, 15);
-sum(5, 10, 15, 100, 200);
+console.log(sum(5, 10));
+console.log(sum(5, 10, 15));
+console.log(sum(5, 10, 15, 100, 200));
+
 
 //EXERCISE 2
 
@@ -24,6 +25,7 @@ waitThenRun(function () {
     });
 });
 
+
 //EXERCISE 3
 /*
 function fn(n) {
@@ -32,7 +34,7 @@ function fn(n) {
     } else if (n >= 1000000) {
         console.log(n);
     } else {
-        while (n < 1000000) {       //my first solution but doesnt work from here, but it's kind of logical to me
+        while (n < 1000000) {       //why is it not working? //help!!
             n * 10;
             if (n < 1000000) {
                 continue;
@@ -45,24 +47,30 @@ function fn(n) {
 
 function fn(n) {
     if (n <= 0 || isNaN(n)) {
-        console.log("ERROR");
+        return "ERROR";
     } else if (n >= 1000000) {
-        console.log(n);
+        return n;
     } else {
         return fn(n * 10);
     }
 }
 
-fn(-10);
-fn(0);
-fn("Nik");
-fn(2000000);
-fn(60);
+console.log(fn(-10));
+console.log(fn(0));
+console.log(fn("Nik"));
+console.log(fn(2000000));
+console.log(fn(60));
+
 
 //BONUS
 function funct(n) {
-    var store = 0;
-    return funct2() {}
+    var store =+ n;
+    return funct2(n) {
+
+        return y
+    }
+    x + y;
+    console.log(store);
 }
 
 funct(1);
@@ -70,3 +78,19 @@ funct(2);
 funct(3);
 funct(4);
 
+function funct(num) {
+    console.log(num);
+    var accumulator =+ num
+    
+    if (num <= 0) {
+        return;
+    } else {
+        funct(num + accumulator);
+        
+    }
+}
+
+funct(1);
+funct(2);
+funct(3);
+funct(4);
