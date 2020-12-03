@@ -63,7 +63,7 @@ console.log(fn(60));
 
 
 //BONUS
-function funct(n) {
+function funct(n) { // NOT FINISHED
     var store =+ n;
     return funct2(n) {
 
