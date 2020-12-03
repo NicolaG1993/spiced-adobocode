@@ -1,18 +1,35 @@
 //EXERCISE 1
 function each(x, callback) {
-    if (x == {}) {
+    if (Array.isArray(x)) {
         for (var index = 0; index < x.length; index++) {
-            const element = array[index];
+            callback(x[index], index);
         }
-    } else if (x == []) {
+    } else {
+        for (var key in x) {
+            callback(x[key], key);
+        }
     }
 }
+
+each(
+    {
+        a: 1,
+        b: 2,
+    },
+    function (val, name) {
+        console.log("The value of " + name + " is " + val);
+    }
+);
+
+each(["a", "b"], function (val, idx) {
+    console.log("The value of item " + idx + " is " + val);
+});
 
 //EXERCISE 2
 var arr = [1, 2, 3, 4, 5, 6];
 
 function reverseArr(x) {
-    return x.slice(0, x.legth).reverse();
+    return x.slice().reverse();
 }
 
 console.log(reverseArr(arr));
@@ -20,7 +37,7 @@ console.log(arr);
 
 //EXERCISE 3
 function getLessThanZero(x) {
-    return x.filter(function (negativeNumb) {
+    return x.slice().filter(function (negativeNumb) {
         if (negativeNumb < 0) {
             return negativeNumb;
         }
