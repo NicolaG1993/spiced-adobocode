@@ -37,7 +37,7 @@ console.log(arr);
 
 //EXERCISE 3
 function getLessThanZero(x) {
-    return x.slice().filter(function (negativeNumb) {
+    return x.filter(function (negativeNumb) {
         if (negativeNumb < 0) {
             return negativeNumb;
         }
