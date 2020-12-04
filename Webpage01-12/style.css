@@ -113,7 +113,6 @@ footer > div > div:nth-child(even) {
     width: 40px;
     margin-top: 0;
     margin-right: 2%;
-    display: inline;
     vertical-align: top;
     top: -20px;
 }
