@@ -15,6 +15,7 @@ body {
     width: 150px;
     border: solid 5px rgb(73, 226, 80);
     border-radius: 50%;
+    transition: ease-in 0.3s;
 }
 
 #body {
@@ -62,4 +63,9 @@ body {
 .leg.left {
     transform: rotate(115deg);
     transform-origin: left;
+}
+
+#head:hover {
+    width: 300px;
+    height: 300px;
 }

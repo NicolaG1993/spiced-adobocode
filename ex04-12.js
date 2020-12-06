@@ -20,32 +20,38 @@ var rect = new Rectangle(4, 5);
 rect.getArea();
 
 //EXERCISE 2
-function invertCase(str) {
-    // var newStr = str;
-    str.split("").filter(function (newStr) {
-        if (newStr.charCodeAt(0) >= 65 && newStr.charCodeAt(0) <= 90) {
-            return concat(newStr.toLowerCase());
-        }
-    });
-
-    //  if () {}
-    // return str.toUpperCase || str.toLowerCase;
-}
 
 function invertCase(str) {
-    var splitStr = str.split();
+    var output = "";
+    var splitStr = str.split("");
 
     for (var i = 0; i < splitStr.length; i++) {
         if (splitStr[i] === splitStr[i].toUpperCase()) {
-            return splitStr[i].toLowerCase();
+            output += splitStr[i].toLowerCase();
         } else {
-            return splitStr[i].toUpperCase();
+            output += splitStr[i].toUpperCase();
         }
-        return spliStr.join();
     }
+    return output;
 }
 
 console.log(invertCase("hey"));
 console.log(invertCase("HEY"));
 console.log(invertCase("Hey Nicola Gaioni"));
 console.log(invertCase("1969 $ & % #"));
+
+//BONUS
+function Countdown(seconds) {
+    while (seconds >= 0) {
+        // setTimeout(, 1000);
+        console.log(seconds);
+        seconds--;
+    }
+}
+
+Countdown(5);
+
+Countdown.prototype.start = function () {};
+
+var countdown = new Countdown(5);
+countdown.start();
