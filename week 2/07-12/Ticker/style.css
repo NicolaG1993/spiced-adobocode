@@ -1,0 +1,22 @@
+* {
+    background: cornsilk;
+    margin: 0;
+}
+
+.ticker {
+    height: 20px;
+    padding: 10px 0;
+    border: 3px solid tomato;
+    overflow: hidden;
+    position: relative;
+}
+
+.headlines {
+    white-space: nowrap;
+    position: absolute;
+    left: 100px;
+}
+
+a {
+    width: 100px;
+}
