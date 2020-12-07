@@ -55,3 +55,19 @@ Countdown.prototype.start = function () {};
 
 var countdown = new Countdown(5);
 countdown.start();
+
+/*
+function Countdown(n) {
+    this.start = function() {
+        tick(n);
+    };
+    function tick(n) {
+        console.log(n);
+        if (n > 0) {
+            setTimeout(function() {
+                tick(n - 1);
+            }, 1000);
+        }
+    }
+}
+*/
