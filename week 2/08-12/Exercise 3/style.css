@@ -2,12 +2,16 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .square {
     background: turquoise;
     height: 100px;
     width: 100px;
     border: 10px solid black;
-    position: absolute;
-    left: 50%;
-    top: 50%;
 }

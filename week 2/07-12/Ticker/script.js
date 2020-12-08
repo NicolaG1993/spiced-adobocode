@@ -24,27 +24,72 @@
 
 //////////////////////
 
+/*
 (function () {
-    var headlines = document.querySelector(".headlines"); //seleziono div
+    var headlines = document.querySelector(".headlines");
 
-    var left = headlines.offsetLeft; //la differenza di pixels fra headlines e l'inizio del primo links
-    //console.log("left: ", left);
+    var left = headlines.offsetLeft;
 
-    var links = document.getElementsByTagName("a"); //seleziono links
+    var links = document.getElementsByTagName("a");
+
+    var left2 = links[0].offsetWidth;
 
     function move() {
-        left--; //
+        left--;
         headlines.style.left = left + "px";
-        for (var i = 0; i < links.length; i++) {
-            if (links[i].offsetWidth > left - links[i].offsetWidth) {
-                //   headlines.removeChild(links[i]);
-                left += links[i].offsetWidth;
-                links.appendChild(links[i]);
-            }
+
+        if (left <= left2 * -1) {
+            left += left2;
+            headlines.appendChild(links[0]);
+            left2 = links[0].offsetWidth;
         }
 
         requestAnimationFrame(move);
     }
 
     move();
+})();
+*/
+
+///////////////////
+
+//PART 1
+(function () {
+    var headlines = document.querySelector(".headlines");
+
+    var left = headlines.offsetLeft;
+
+    var links = document.getElementsByTagName("a");
+    var link1 = links[0];
+    var link2 = link1.offsetLeft + link1.offsetWidth;
+
+    function move() {
+        left--;
+
+        if (left < -link2) {
+            left += link2;
+            headlines.appendChild(link1);
+            link1 = links[0];
+            left2 = link1.offsetWidth;
+        }
+        headlines.style.left = left + "px";
+        requestAnimationFrame(move);
+    }
+
+    move();
+
+    //PART 2
+    for (let i = 0; i < links.length; i++) {
+        links[i].addEventListener("mouseenter", function (event) {
+            left = event.target.offsetX;
+            links[i].style.color = "blue";
+            links[i].style.textDecoration = "underline";
+        });
+
+        links[i].addEventListener("mouseleave", function () {
+            left = headlines.offsetLeft;
+            links[i].style.color = "turquoise";
+            links[i].style.textDecoration = "none";
+        });
+    }
 })();
