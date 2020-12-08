@@ -1,5 +1,4 @@
-console.log("HEY");
-
+/*
 (function () {
     // var headlines = document.getElementsByClassName("headlines")[0];
     //cosí torna il div senza che sia in un array
@@ -20,4 +19,32 @@ console.log("HEY");
     }
 
     move(); //invoco funzione
+})();
+*/
+
+//////////////////////
+
+(function () {
+    var headlines = document.querySelector(".headlines"); //seleziono div
+
+    var left = headlines.offsetLeft; //la differenza di pixels fra headlines e l'inizio del primo links
+    //console.log("left: ", left);
+
+    var links = document.getElementsByTagName("a"); //seleziono links
+
+    function move() {
+        left--; //
+        headlines.style.left = left + "px";
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].offsetWidth > left - links[i].offsetWidth) {
+                //   headlines.removeChild(links[i]);
+                left += links[i].offsetWidth;
+                links.appendChild(links[i]);
+            }
+        }
+
+        requestAnimationFrame(move);
+    }
+
+    move();
 })();
