@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
-        <title>Placing Element - Nik</title>
+        <title>Placing Element + Hamburger Button // Nik</title>
     </head>
     <body>
         <header>
@@ -12,7 +12,7 @@
                 <img id="logo" src="assets/spiced.png" alt="Logo" />
             </div>
             <div id="menu-button">
-                <img src="assets/hamburgermenu.svg" alt="Menu" />
+                <img class="open" src="assets/hamburgermenu.svg" alt="Menu" />
             </div>
         </header>
 
@@ -71,5 +71,16 @@
                 </div>
             </div>
         </footer>
+
+        <nav>
+            <div class="close">X</div>
+            <a href="javascript://">About</a>
+            <a href="javascript://">Products</a>
+            <a href="javascript://">Services</a>
+            <a href="javascript://">Contact</a>
+        </nav>
+        <div class="overlay"></div>
+
+        <script src="script.js"></script>
     </body>
 </html>
