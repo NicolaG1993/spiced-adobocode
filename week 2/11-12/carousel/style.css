@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#dogs {
+    height: 600px;
+    position: relative;
+    overflow: hidden; /*senza vedremo tutte le immagini*/
+}
+
+#dogs img {
+    position: absolute; /* ora sono uno sopra l'altro, stessa posizione*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*funziona come bg-size*/
+    transform: translateX(100%);
+}
+
+#dogs img:nth-child(3) {
+    object-position: top;
+}
+
+#dogs img.onscreen {
+    transform: translateX(0);
+    transition: transform 3s;
+}
+
+#dogs .exit-left {
+    transform: translateX(-100%);
+    transition: transform 3s;
+}
+
+.dotBox {
+    height: 30px;
+    background: green;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transform: translateX(50%);
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid red;
+    border-radius: 100%;
+    margin: 5px;
+}

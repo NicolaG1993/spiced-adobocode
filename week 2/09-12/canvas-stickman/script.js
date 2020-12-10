@@ -28,9 +28,10 @@
     ctx.stroke();
 
     ///BONUS
-    var frame = document.getElementById("frame");
+    var frame = document.getElementById("frame").getContext("2d");
+    frame.drawImage(canvas, 10, 10);
 
     frame.addEventListener("input", function () {
-        ctx.drawImage(canvas, 10, 10);
+        //
     });
 })();
