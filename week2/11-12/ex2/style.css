@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 70px 1fr 30px;
+}
+
+header {
+    background: rgb(14, 41, 92);
+}
+
+main {
+    background: rgb(136, 181, 187);
+}
+
+footer {
+    background: rgb(11, 59, 114);
+}
