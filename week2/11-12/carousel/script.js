@@ -6,6 +6,7 @@
     var isTransitioning = false;
 
     function moveDogs() {
+        isTransitioning = true;
         dots[currentDog].classList.remove("on");
         dogs[currentDog].classList.replace("onscreen", "exit-left");
 
@@ -21,7 +22,6 @@
 
         dogs[currentDog].classList.add("onscreen");
         dots[currentDog].classList.add("on");
-        isTransitioning = true;
     }
 
     timer = setTimeout(moveDogs, 2000);
@@ -31,6 +31,7 @@
             e.target.classList.remove("exit-left");
             timer = setTimeout(moveDogs, 5000);
         }
+
         isTransitioning = false;
     });
 
@@ -44,9 +45,11 @@
                 return;
             }
             if (isTransitioning) {
+                console.log(isTransitioning);
                 return;
             }
             clearTimeout(timer);
+            console.log(isTransitioning);
 
             moveDogs(i);
         };
