@@ -58,10 +58,14 @@
     var headlines = document.querySelector(".headlines");
 
     var left = headlines.offsetLeft;
+    console.log(headlines);
+    console.log(left);
 
     var links = document.getElementsByTagName("a");
     var link1 = links[0];
     var link2 = link1.offsetLeft + link1.offsetWidth;
+
+    console.log(link2);
 
     function move() {
         left--;
