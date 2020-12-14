@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section {
+    background: burlywood;
+    width: 100%;
+    height: 400px;
+}
+
+.imgBox1,
+.imgBox2 {
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imgBox1 {
+    z-index: 10;
+}
+
+.imgBox2 {
+    z-index: 11;
+    right: 0;
+}
+
+.slide {
+    z-index: 12;
+    width: 15px;
+    height: 400px;
+    background: darkslategrey;
+    margin: 0;
+    position: absolute;
+}
+
+img {
+    object-fit: cover;
+}

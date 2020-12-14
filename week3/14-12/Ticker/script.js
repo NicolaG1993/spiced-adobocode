@@ -32,22 +32,20 @@
     move();
 
     //PART 2
-    for (let i = 0; i < links.length; i++) {
-        $(links.eq(i)).on("mouseenter", function (event) {
-            left = event.target.offsetX; //?
+    $(links.eq(i)).on("mouseenter", function (event) {
+        left = event.target.offsetX; //?
 
-            links.eq(i).css({
-                color: "blue",
-                textDecoration: "underline",
-            });
+        links.eq(i).css({
+            color: "blue",
+            textDecoration: "underline",
         });
+    });
 
-        $(links.eq(i)).on("mouseleave", function () {
-            left = headlines.offsetLeft; //?
-            links.eq(i).css({
-                color: "turquoise",
-                textDecoration: "none",
-            });
+    $(links.eq(i)).on("mouseleave", function () {
+        left = headlines.offsetLeft; //?
+        links.eq(i).css({
+            color: "turquoise",
+            textDecoration: "none",
         });
-    }
+    });
 })();

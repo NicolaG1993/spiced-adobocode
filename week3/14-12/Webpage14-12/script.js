@@ -1,10 +1,22 @@
-$("<div><h3>Welcome!!!</h3><p>Take a tour<p/></div>")
-    .css({
-        textDecoration: "underline",
-    })
-    .addClass("happy")
-    .appendTo("body");
+//WEEK 3
+var alertOverlay = $(".alertOverlay");
+var span = $("span");
 
+function alert() {
+    alertOverlay.css({
+        visibility: "visible",
+    });
+
+    span.on("click", function () {
+        alertOverlay.css({
+            visibility: "hidden",
+        });
+    });
+}
+
+setTimeout(alert, 1000);
+
+//WEEK 2
 (function () {
     var nav = document.querySelector("nav");
     var open = document.getElementById("menu-button");
