@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(221, 161, 82);
+}
+
+.results {
+    background-color: ghostwhite;
+    max-width: 300px;
+}
+
+.highlight {
+    background: blue;
+    color: white;
+}
