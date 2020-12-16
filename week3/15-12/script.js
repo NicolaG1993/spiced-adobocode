@@ -308,15 +308,15 @@
 
             // 5. focus event
 
-            if ($(".highlight")) {
-                var currentB = $(".highlight");
-                //console.log("some text highlighted!!");
-                console.log(currentB[0].innerText);
-                searchField.val(currentB[0].innerText);
-            }
+            searchField.on("focus", function () {
+                searchField.show($(".highlight"));
+            });
 
             // 6. blur event
 
+            searchField.on("blur", function () {
+                searchField.hide($(".highlight"));
+            });
             /*
             if (inputVal.length < 1) {
                 console.log("no text input!!", searchField);
