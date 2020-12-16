@@ -199,30 +199,24 @@
 
     //1. input eventListener
     searchField.on("input", function () {
-        var inputVal = searchField.val().toLowerCase(); //serve per non avere la ricerca case sensitive
-        console.log("input value typer: ", inputVal); //log what user type in the searchfield
+        var inputVal = searchField.val().toLowerCase();
+        console.log("input value typer: ", inputVal);
         var matchResults = [];
 
-        //loop x trovare i match con il nostro input
         for (var i = 0; i < countries.length; i++) {
-            //loopiamo attraverso ogni singolo risultato
-            // console.log(countries[i].indexOf(inputVal)===0); //index of ci torna la posizione di una lettera in una stringa (match)
             if (countries[i].toLowerCase().indexOf(inputVal) === 0) {
-                //0 serve per indicare l'inizio del match, a noi interessano i match che combaciano dall'inizio (0)
-                //se il paese(scritto in minuscolo) nell'array, combacia: (indexof(valore passato)) e torna 0, quindi l'inizio combacia
                 console.log("found a match: ", countries[i]);
 
-                matchResults.push(countries[i]); //lo pushamo nella nuova array, quindi ci spingiamo tutti i match attuali (siamo in loop)
-                //limit your results to a maximum of 4
+                matchResults.push(countries[i]);
                 if (matchResults.length === 4) {
-                    break; //esci se i match sono > 4
+                    break;
                 }
             }
         }
 
         if (!matchResults.length) {
             matchResults.push("no results");
-        } //se non ci sono risultati in matchResults[] pusha la stringa "no results"
+        }
 
         console.log("match results: ", matchResults);
         var htmlForCountries = "";
@@ -235,7 +229,7 @@
 
         if (!inputVal.length) {
             resultsContainer.empty(htmlForCountries);
-        } //se non cé input svuota il container dei results dall'html che abbiamo inserito prima //se no i risultati restano li
+        }
 
         // 2. mouseover event
         var country = $(".country");
@@ -244,13 +238,9 @@
             $(e.target).addClass("highlight");
 
             // 3. mousedown event
-            // set input value to our selected value // val() = getter & setter
             $(e.target).on("mousedown", function () {
-                //console.log("I have selected: ", this);
-                //console.log("I have selected: ", selected);
                 searchField.val(this.innerText);
                 resultsContainer.html("");
-                // resultsContainer.empty(); //this works too
             });
         });
 
@@ -260,7 +250,6 @@
         });
 
         // 4. keydown event
-
         $(document).on("keydown", function (e) {
             if (e.keyCode === 40) {
                 console.log("arrow down was pressed: ");
@@ -272,13 +261,10 @@
                     console.log("if 2 activated");
                     return;
                 } else {
-                    //this part doesnt work //
-                    //country.eq($(e.target)[i]).removeClass("highlight");
                     var current = $(".highlight");
                     $(".highlight").removeClass("highlight");
                     current.next().addClass("highlight");
                     console.log("if 3 activated");
-                    // country.eq($(e.target)[i]).next().addClass("highlight");
                 }
             }
             if (e.keyCode === 38) {
@@ -307,22 +293,14 @@
             }
 
             // 5. focus event
-
             searchField.on("focus", function () {
-                searchField.show(country);
+                resultsContainer.show();
             });
 
             // 6. blur event
-
             searchField.on("blur", function () {
-                searchField.hide(country);
+                resultsContainer.hide();
             });
-            /*
-            if (inputVal.length < 1) {
-                console.log("no text input!!", searchField);
-                searchField.off("input"); //?
-            }
-            */
         });
     });
 })();

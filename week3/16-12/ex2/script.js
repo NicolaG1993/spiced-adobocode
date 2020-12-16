@@ -16,7 +16,7 @@
 
     (function translateNumberToGerman() {
         try {
-            console.log("launching function");
+            //console.log("launching function");
             body.append(askForNumber());
             return;
         } catch (e) {
