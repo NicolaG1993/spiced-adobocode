@@ -309,13 +309,13 @@
             // 5. focus event
 
             searchField.on("focus", function () {
-                searchField.show($(".highlight"));
+                searchField.show(country);
             });
 
             // 6. blur event
 
             searchField.on("blur", function () {
-                searchField.hide($(".highlight"));
+                searchField.hide(country);
             });
             /*
             if (inputVal.length < 1) {
