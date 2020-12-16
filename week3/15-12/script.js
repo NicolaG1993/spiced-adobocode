@@ -262,63 +262,67 @@
         // 4. keydown event
 
         $(document).on("keydown", function (e) {
-            for (var i = 0; i < country.length; i++) {
-                if (e.keyCode === 40) {
-                    console.log("arrow down was pressed: ");
+            if (e.keyCode === 40) {
+                console.log("arrow down was pressed: ");
 
-                    if (!country.hasClass("highlight")) {
-                        country.eq(0).addClass("highlight");
-                        console.log("if 1 activated");
-                    } else if (country.eq(-1).hasClass("highlight")) {
-                        console.log("if 2 activated");
-                        return;
-                    } else {
-                        //this part doesnt work //
-                        country.eq($(e.target)[i]).removeClass("highlight");
-
-                        country.eq($(e.target)[i]).next().addClass("highlight");
-                        console.log(
-                            "if 3 activated",
-                            country[i].outerHTML,
-                            e.target
-                        );
-                    }
+                if (!country.hasClass("highlight")) {
+                    country.eq(0).addClass("highlight");
+                    console.log("if 1 activated");
+                } else if (country.eq(-1).hasClass("highlight")) {
+                    console.log("if 2 activated");
+                    return;
+                } else {
+                    //this part doesnt work //
+                    //country.eq($(e.target)[i]).removeClass("highlight");
+                    var current = $(".highlight");
+                    $(".highlight").removeClass("highlight");
+                    current.next().addClass("highlight");
+                    console.log("if 3 activated");
+                    // country.eq($(e.target)[i]).next().addClass("highlight");
                 }
-                if (e.keyCode === 38) {
-                    console.log("arrow up was pressed: ");
-                    if (!country.eq(i).hasClass("highlight")) {
-                        country.eq(-1).addClass("highlight");
-                        console.log("if A activated");
-                    } else if (country.eq(0).hasClass("highlight")) {
-                        console.log("if B activated");
-                        return;
-                    } else {
-                        console.log("if C activated");
-                    }
+            }
+            if (e.keyCode === 38) {
+                console.log("arrow up was pressed: ");
+                if (!country.hasClass("highlight")) {
+                    country.eq(-1).addClass("highlight");
+                    console.log("if A activated");
+                } else if (country.eq(0).hasClass("highlight")) {
+                    console.log("if B activated");
+                    return;
+                } else {
+                    var current = $(".highlight");
+                    $(".highlight").removeClass("highlight");
+                    current.prev().addClass("highlight");
+                    console.log("if C activated");
                 }
+            }
 
-                if (e.keyCode === 13) {
-                    for (var i = 0; i < country.length; i++) {
-                        if (country.eq(i).hasClass("highlight")) {
-                            searchField.val(country.eq(i).text());
-                            resultsContainer.html("");
-                        }
+            if (e.keyCode === 13) {
+                for (var i = 0; i < country.length; i++) {
+                    if (country.eq(i).hasClass("highlight")) {
+                        searchField.val(country.eq(i).text());
+                        resultsContainer.html("");
                     }
                 }
             }
+
+            // 5. focus event
+
+            if ($(".highlight")) {
+                var currentB = $(".highlight");
+                //console.log("some text highlighted!!");
+                console.log(currentB[0].innerText);
+                searchField.val(currentB[0].innerText);
+            }
+
+            // 6. blur event
+
+            /*
+            if (inputVal.length < 1) {
+                console.log("no text input!!", searchField);
+                searchField.off("input"); //?
+            }
+            */
         });
-
-        // 5. focus event
-
-        if (country.eq().hasClass("highlight")) {
-            console.log("some text highlighted!!");
-            searchField.val(this.innerText);
-        } //not finished
-
-        // 6. blur event
-
-        if (!country.eq().hasClass("highlight")) {
-            console.log("no text highlighted!!");
-        } //not finished
     });
 })();
