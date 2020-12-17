@@ -65,6 +65,8 @@
     var link1 = links[0];
     var link2 = link1.offsetLeft + link1.offsetWidth;
 
+    console.log(links);
+    console.log(link1);
     console.log(link2);
 
     function move() {
