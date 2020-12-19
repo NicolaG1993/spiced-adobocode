@@ -1,0 +1,222 @@
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 100px 40px 0 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    position: absolute;
+    width: 100%;
+    background: lightblue;
+    top: 0;
+    left: 0;
+    height: 80px;
+    padding: 20px 40px;
+}
+
+h1 {
+    float: left;
+    margin: 0;
+}
+
+.btn {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 20px 40px;
+    text-align: center;
+    transition: 2s;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 30pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GAME */
+main {
+    max-width: 750px;
+    float: left;
+    margin-right: 50px;
+}
+
+.handBox {
+    background: slateblue;
+    height: 80px;
+}
+
+#hand {
+    height: 40px;
+    margin: 20px 0;
+}
+
+.arrowBox {
+    background: slateblue;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.board {
+    display: flex;
+}
+
+.column {
+    border: 3px solid rgb(39, 67, 151);
+    background-color: dodgerblue;
+    color: dodgerblue;
+}
+
+.slot {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hole {
+    border: 3px solid rgb(39, 67, 151);
+    background: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.player1 .hole {
+    background-color: indianred;
+}
+
+.player2 .hole {
+    background: khaki;
+}
+
+/* SIDE SECTION */
+.sideBar {
+    background: teal;
+    height: 600px;
+    padding: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+/* .player1Score {
+    float: left;
+    max-width: 50%;
+}
+.player2Score {
+    float: right;
+    max-width: 50%;
+} */
+
+.scores {
+    width: 100%;
+}
+
+/* NAV */
+/* nav {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    background: tomato;
+    top: 0;
+    right: 0;
+
+    transform: translateX(100%);
+} */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    visibility: hidden;
+
+    opacity: 0;
+    transition: visibility 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+nav {
+    position: absolute;
+    background-color: tomato;
+    height: 100vh;
+    width: 20%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    transform: translateX(100%);
+    transition: transform 2s;
+}
+
+ul {
+    margin-top: 160px;
+}
+
+li {
+    display: block;
+    margin: 20px 0 0 0;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* VICTORY */
+.victory {
+    position: absolute;
+    z-index: 200;
+
+    top: 0;
+    left: 0;
+
+    text-align: center;
+    visibility: hidden;
+}
+
+.overlayWin {
+    background: black;
+    opacity: 50%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.alertBox {
+    position: absolute;
+    margin: auto;
+
+    text-align: center;
+    width: 350px;
+    height: 250px;
+    background: cornsilk;
+    border-radius: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* JS STYLES */
+.on {
+    transform: translateX(0%);
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
