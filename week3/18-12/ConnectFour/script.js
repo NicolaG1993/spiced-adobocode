@@ -1,6 +1,8 @@
 (function () {
     var currentPlayer = "player1";
+    var board = $(".board");
     var slots = $(".slot");
+    var hand = $("#hand");
     var victory = $(".victory");
     //console.log("slots:", slots);
     var score1 = 0;
@@ -64,7 +66,7 @@
                     //     slots.eq(0 || 6 || 12 || 18 || 24 || 30 || 36)
                     // ) {return false; }
 
-                    console.log("I won!");
+                    //console.log("I won!");
                     return true;
                 }
             } else {
@@ -78,35 +80,34 @@
                 slots.eq(i + 10).hasClass(currentPlayer) &&
                 slots.eq(i + 15).hasClass(currentPlayer)
             ) {
-                console.log("rx Diagonal won!");
+                return true;
+                //console.log("rx Diagonal won!");
             } else if (
                 slots.eq(i).hasClass(currentPlayer) &&
                 slots.eq(i + 7).hasClass(currentPlayer) &&
                 slots.eq(i + 14).hasClass(currentPlayer) &&
                 slots.eq(i + 21).hasClass(currentPlayer)
             ) {
-                console.log("sx Diagonal won!");
+                return true;
+                //console.log("sx Diagonal won!");
             }
         }
     }
 
+    //GAME OVER - CONTINUE - RESET
     function gameOver(str) {
         victory.css("visibility", "visible");
-        //pusha in html stringa vincitore + tipo di vittoria
         if (currentPlayer === "player1") {
             score1++;
-            console.log(score1);
             $("#player1Score").html(score1);
         } else {
             score2++;
-            console.log(score2);
             $("#player2Score").html(score2);
+            //localstorage? // non riesco a settare default value 0
         }
-        console.log("winner is: " + currentPlayer);
+        $(".winner").text("🎉 The winner is " + currentPlayer + " 🎉");
+        $(".victoryStyle").text("It was a " + str);
         console.log(str);
-        //aggiorna risultato
-        //salvalo
-        // localStorage.setItem("toStore", inputVal);
     }
 
     var playAgain = $(".playAgain");
@@ -121,11 +122,53 @@
     reset.on("click", function () {
         //reset local storage
         //clear console
-        //refresh page
-        //questo codice non serve poi
         slots.removeClass("player1");
         slots.removeClass("player2");
+        $("#player1Score").html((score1 = 0));
+        $("#player2Score").html((score2 = 0));
         victory.css("visibility", "hidden");
+    });
+
+    //MUOSE HOVER ANIMATION
+    board.on("mousemove", function (e) {
+        hand.css("left", e.clientX - "120" + "px");
+    });
+
+    board.on("mouseover", function (e) {
+        var arrowColumn = $(".arrowColumn");
+
+        switch (e.target) {
+            case e.currentTarget.children[0]:
+                arrowColumn.html("");
+                arrowColumn.eq(0).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[1]:
+                arrowColumn.html("");
+                arrowColumn.eq(1).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[2]:
+                arrowColumn.html("");
+                arrowColumn.eq(2).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[3]:
+                arrowColumn.html("");
+                arrowColumn.eq(3).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[4]:
+                arrowColumn.html("");
+                arrowColumn.eq(4).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[5]:
+                arrowColumn.html("");
+                arrowColumn.eq(5).html("<span>▲</span>");
+                break;
+            case e.currentTarget.children[6]:
+                arrowColumn.html("");
+                arrowColumn.eq(6).html("<span>▲</span>");
+                break;
+            default:
+                break;
+        }
     });
 })();
 
@@ -142,7 +185,7 @@
         nav.addClass("on");
 
         overlay.css("visibility", "visible");
-        overlay.css("opacity", "33" + "%");
+        overlay.css("opacity", "50" + "%");
         btn2.addClass("show");
         btn1.removeClass("show");
     });
