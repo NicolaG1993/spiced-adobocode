@@ -1,12 +1,17 @@
 * {
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
     margin: 0;
-    background: lightskyblue;
+    height: 100vh;
+    text-align: center;
+    /* background: lightskyblue; */
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25pt;
+    font-size: 200pt;
     font-weight: bold;
-    color: crimson;
+    color: white;
+    background-image: url("https://i.pinimg.com/originals/34/4c/5f/344c5f5c55e53cfced0aa8db64123c87.jpg");
+    background-size: cover;
 }

@@ -5,9 +5,13 @@
 body {
     margin: 0;
     height: 100%;
-    background: cadetblue;
+    /* background: cadetblue; */
+    /* background: rgb(8, 8, 8); */
+    background-image: url("https://i.pinimg.com/originals/e5/59/c5/e559c582fa17ad0f7672cd45e972b434.jpg");
+    background-size: cover;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 main {
@@ -17,10 +21,12 @@ main {
     margin: auto;
 }
 
-#validator {
+textarea {
     width: 50%;
     margin: auto;
     border-radius: 10px;
+    background: black;
+    color: chartreuse;
 }
 
 button {
@@ -31,9 +37,16 @@ button {
 }
 
 .true {
-    background: chartreuse;
+    background: rgb(69, 219, 0);
+    color: black;
 }
 
 .false {
     background: crimson;
+    color: black;
+}
+
+::selection {
+    background: chartreuse;
+    color: white;
 }

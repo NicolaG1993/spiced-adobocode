@@ -62,15 +62,30 @@ main {
 
 .handBox {
     /* background: slateblue; */
-    height: 80px;
+    height: 100px;
+}
+
+.handCont {
+    position: relative;
+    left: 0;
+}
+
+.preChip {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    position: relative;
+    transform: translateY(-82%);
+    left: 68px;
+    z-index: 5;
 }
 
 #hand {
     position: relative;
     height: 40px;
-    margin: 20px 0;
-    left: 0;
-    z-index: 4;
+    margin: 30px 0;
+    z-index: 50;
 }
 
 .arrowBox {
@@ -87,6 +102,8 @@ main {
 
 .board {
     display: flex;
+    z-index: 51;
+    position: relative;
 }
 
 .column {
@@ -113,7 +130,7 @@ main {
 }
 
 .player1 .hole {
-    background-color: indianred;
+    background: indianred;
 }
 
 .player2 .hole {
@@ -162,6 +179,7 @@ main {
     width: 100vw;
     background: black;
     visibility: hidden;
+    z-index: 200;
 
     opacity: 0;
     transition: visibility 2s ease-in-out, opacity 2s ease-in-out;
@@ -174,7 +192,7 @@ nav {
     width: 25%;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 201;
 
     transform: translateX(100%);
     transition: transform 2s;
@@ -199,6 +217,98 @@ li:hover {
     /* text-decoration: underline; */
     /* font-style: italic; */
     font-size: 22px;
+}
+
+/* COLOR PICKER */
+.colorsCont {
+    position: absolute;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 201;
+    right: 15px;
+    top: 50%;
+    transform: translateX(180%);
+    border: 2px solid whitesmoke;
+    border-radius: 20px;
+    transition: 0.8s ease-out;
+}
+
+.skin {
+    position: relative;
+    background: chartreuse;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skin:hover {
+    border: 3px solid whitesmoke;
+}
+
+.a1 {
+    background: indianred;
+}
+
+.a2 {
+    background: khaki;
+}
+
+.a3 {
+    background: turquoise;
+}
+
+.a4 {
+    background: hotpink;
+}
+
+.a5 {
+    background: lawngreen;
+}
+
+.b1 {
+    background: turquoise;
+}
+
+.b2 {
+    background: khaki;
+}
+
+.b3 {
+    background: turquoise;
+}
+
+.b4 {
+    background: turquoise;
+}
+
+.b5 {
+    background: turquoise;
+}
+
+.c1 {
+    background: turquoise;
+}
+
+.c2 {
+    background: khaki;
+}
+
+.c3 {
+    background: turquoise;
+}
+
+.c4 {
+    background: turquoise;
+}
+
+.c5 {
+    background: turquoise;
 }
 
 /* VICTORY */

@@ -1,8 +1,10 @@
 (function () {
     var currentPlayer = "player1";
+    var preChip = $(".preChip");
+
     var board = $(".board");
     var slots = $(".slot");
-    var hand = $("#hand");
+    var hand = $(".handCont");
     var victory = $(".victory");
     //console.log("slots:", slots);
     var score1 = 0;
@@ -12,9 +14,7 @@
         //console.log("target:", e.target);
         //console.log("currentTarget:", e.currentTarget);
         //console.log("rowX: ", $(".row3"));
-
         var col = $(e.currentTarget);
-
         var slotsInCol = col.children();
         //console.log("slotsInCol :", slotsInCol);
         //console.log("slotsInCol.length :", slotsInCol.length);
@@ -26,6 +26,7 @@
                 !slotsInCol.eq(i).hasClass("player2")
             ) {
                 slotsInCol.eq(i).addClass(currentPlayer);
+
                 break;
             }
         }
@@ -41,6 +42,8 @@
         }
 
         switchPlayer();
+        preChip.removeClass("player1" && "player2");
+        preChip.addClass(currentPlayer);
     });
 
     function switchPlayer() {
@@ -50,6 +53,14 @@
             currentPlayer = "player1";
         }
     }
+
+    // function switchColor() {
+    //     if (currentColor === "color1") {
+    //         currentColor = "color2";
+    //     } else {
+    //         currentColor = "color1";
+    //     }
+    // }
 
     function checkforVictory(slots) {
         //console.log(slots);
@@ -170,6 +181,36 @@
                 break;
         }
     });
+
+    // //COLOR MENU
+    var colorPicker = $(".colorPicker");
+    var colorsCont = $(".colorsCont");
+    colorPicker.on("click", function () {
+        colorsCont.toggleClass("on");
+    });
+
+    // cant make this part works
+    //var colors = $(".skin");
+    // colors.on("click", function (e) {
+    //     var colorsCol = $(e.target);
+    //     // var colorInCol = colorsCol.children();
+
+    //     board.find($(".player1 .hole")).css("background", "white");
+    //     //.addClass(e.target.classList[1]);
+
+    //     console.log($(this).prop("class"));
+    //     console.log(e);
+    //     console.log(e.target);
+    //     console.log(e.target.classList[1]);
+    //     // console.log(currentPlayer);
+
+    //     // //  $(currentPlayer).addClass(e.target.classList[1]);
+    //     // currentPlayer = currentPlayer + " " + e.target.classList[1];
+    //     // //currentPlayer.removeClass
+
+    //     // preChip.removeClass("player1" && "player2");
+    //     // preChip.addClass(currentPlayer);
+    // });
 })();
 
 //HAMBURGER BUTTON & NAV
@@ -192,6 +233,7 @@
 
     btn2.on("click", function () {
         nav.removeClass("on");
+        $(".colorsCont").removeClass("on");
 
         overlay.css("opacity", 0);
         overlay.css("visibility", "hidden");
@@ -200,6 +242,8 @@
         btn1.addClass("show");
     });
 })();
+
+////////////////////////////////
 
 // function checkDiag() {
 //     for (var i = 0; i < slots.length; i++) {

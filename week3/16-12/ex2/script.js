@@ -1,17 +1,17 @@
 (function () {
     var body = $("main");
     var germanNumbers = [
-        "null",
-        "eins",
-        "zwei",
-        "drei",
-        "vier",
-        "fünf",
-        "sechs",
-        "sieben",
-        "acht",
-        "nein",
-        "zehn",
+        "null<br>👌",
+        "eins<br>👍",
+        "zwei<br>✌",
+        "drei<br>🤟",
+        "vier<br>✌✌",
+        "fünf<br>🖐",
+        "sechs<br>🖐👍",
+        "sieben<br>🖐✌",
+        "acht<br>🖐🤟",
+        "neun<br>🖐✌✌",
+        "zehn<br>🖐🖐",
     ];
 
     (function translateNumberToGerman() {
