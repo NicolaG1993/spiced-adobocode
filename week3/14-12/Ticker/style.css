@@ -2,13 +2,17 @@
     margin: 0;
 }
 body {
-    background: turquoise;
+    background: rgb(43, 52, 136);
+    background-image: url("https://ma-hub.imgix.net/wp-images/2019/05/28232454/news-intro-template.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 .ticker {
     height: 20px;
     padding: 10px 0;
-    border: 3px solid rgb(252, 232, 229);
-    background: gold;
+    /* border: 3px solid rgb(0, 12, 80); */
+    background: rgb(69, 115, 240);
     overflow: hidden;
     position: relative;
 }
@@ -20,6 +24,7 @@ body {
 
 a {
     margin-left: 30px;
-    color: turquoise;
+    color: whitesmoke;
     text-decoration: none;
+    font-weight: bold;
 }

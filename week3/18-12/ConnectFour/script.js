@@ -304,3 +304,79 @@
 //         }
 //     }
 // }
+
+function checkForVictory(slots) {
+    // console.log(slots);
+    var counter = 0; // number of adjacent chips in a column
+    for (var i = 0; i < slots.length; i++) {
+        if (slots.eq(i).hasClass(currentPlayer)) {
+            counter++;
+            if (counter === 4) {
+                return true;
+            }
+        } else if (
+            slots.eq(i).hasClass(currentPlayer) &&
+            slots.eq(i + 7).hasClass(currentPlayer) &&
+            slots.eq(i + 14).hasClass(currentPlayer) &&
+            slots.eq(i + 21).hasClass(currentPlayer) &&
+            ((((slots.eq(i).parent().index() + 1 ===
+                slots
+                    .eq(i + 7)
+                    .parent()
+                    .index()) ===
+                slots
+                    .eq(i + 7)
+                    .parent()
+                    .index() +
+                    1) ===
+                slots
+                    .eq(i + 14)
+                    .parent()
+                    .index()) ===
+                slots
+                    .eq(i + 14)
+                    .parent()
+                    .index() +
+                    1) ===
+                slots
+                    .eq(i + 21)
+                    .parent()
+                    .index()
+        ) {
+            return true;
+        } else if (
+            slots.eq(i).hasClass(currentPlayer) &&
+            slots.eq(i + 5).hasClass(currentPlayer) &&
+            slots.eq(i + 10).hasClass(currentPlayer) &&
+            slots.eq(i + 15).hasClass(currentPlayer) &&
+            ((((slots.eq(i).parent().index() + 1 ===
+                slots
+                    .eq(i + 5)
+                    .parent()
+                    .index()) ===
+                slots
+                    .eq(i + 5)
+                    .parent()
+                    .index() +
+                    1) ===
+                slots
+                    .eq(i + 10)
+                    .parent()
+                    .index()) ===
+                slots
+                    .eq(i + 10)
+                    .parent()
+                    .index() +
+                    1) ===
+                slots
+                    .eq(i + 15)
+                    .parent()
+                    .index()
+        ) {
+            return true;
+        } else {
+            counter = 0;
+            console.log("counter reset to 0 :(");
+        }
+    }
+}
