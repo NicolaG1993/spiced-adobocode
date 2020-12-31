@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: rgb(14, 14, 14);
+    color: ghostwhite;
+    padding: 20px 10px;
+}
+
+/*SEARCH FIELDS*/
+
+.search-fields {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#logo {
+    background-image: url("https://1000marche.net/wp-content/uploads/2020/03/spotify-logo-768x432.png");
+    background-size: cover;
+    width: 500px;
+    height: 250px;
+    display: inline-block;
+    position: relative;
+}
+
+input {
+    width: 350px;
+}
+
+select {
+    width: 100px;
+}
+
+button {
+    width: 100px;
+    font-weight: bold;
+}
+
+/*RESULTS*/
+
+.results-container {
+    width: 550px;
+    margin: auto;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.results-container > div {
+    margin-bottom: 40px;
+    font-family: Helvetica;
+    font-size: large;
+    font-weight: bold;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+}

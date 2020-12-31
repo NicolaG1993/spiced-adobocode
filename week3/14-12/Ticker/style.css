@@ -12,7 +12,7 @@ body {
     height: 20px;
     padding: 10px 0;
     /* border: 3px solid rgb(0, 12, 80); */
-    background: rgb(69, 115, 240);
+    background: rgb(27, 49, 112);
     overflow: hidden;
     position: relative;
 }
@@ -27,4 +27,10 @@ a {
     color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
+}
+
+a:hover {
+    color: cyan;
+    font-weight: bold;
+    text-decoration: underline;
 }
