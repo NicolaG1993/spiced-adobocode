@@ -7,12 +7,16 @@ body {
     background: rgb(14, 14, 14);
     color: ghostwhite;
     padding: 20px 10px;
+    text-align: center;
+}
+
+::selection {
+    background-color: rgb(80, 238, 93);
 }
 
 /*SEARCH FIELDS*/
 
 .search-fields {
-    text-align: center;
     margin-top: 100px;
 }
 
@@ -36,6 +40,7 @@ select {
 button {
     width: 100px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /*RESULTS*/
@@ -43,11 +48,12 @@ button {
 .results-container {
     width: 550px;
     margin: auto;
+    text-align: start;
 }
 
 h3 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .results-container > div {
@@ -68,4 +74,32 @@ img {
     height: 200px;
     object-fit: cover;
     margin-right: 20px;
+}
+
+.results-container > div > a > p {
+    max-width: 330px;
+    display: inline-block;
+    margin: 0;
+}
+
+#more-button {
+    display: inline-block;
+    border: 2.5px solid ghostwhite;
+    background: transparent;
+    color: ghostwhite;
+    width: 170px;
+    border-radius: 50px;
+    height: 30px;
+    margin-top: 20px;
+    transition: 0.5s ease;
+}
+
+#more-button:hover {
+    border: 2.5px solid transparent;
+    background: ghostwhite;
+    color: rgb(14, 14, 14);
+}
+
+.hide {
+    visibility: hidden;
 }
