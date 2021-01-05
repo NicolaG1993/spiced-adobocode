@@ -27,14 +27,76 @@ logInfo({ name: "Venice", country: "Italy", population: 1000000 });
 
 //EXERCISE 4
 
+var Bologna = { name: "Bologna", country: "Italy" };
+var Lugano = { name: "Lugano", country: "Switzerland" };
+
 function getNameAndCountry(x) {
     return [x.name, x.country];
 }
 
-function getRelocatedCity(city1, city2 = { country: "Germany" }) {
-    var [, country] = getNameAndCountry(city2);
+function getRelocatedCity(city1, city2) {
+    if (typeof city2 == "undefined") {
+        city2 = {
+            country: "Germany",
+        };
+    }
+    var country = getNameAndCountry(city2)[1];
+    var obj = {};
+
+    for (var key in city1) {
+        obj[key] = city1[key];
+    }
+
     return {
-        ...city1,
+        obj,
         country,
     };
 }
+
+console.log(getRelocatedCity(Bologna, Lugano));
+//console.log(getNameAndCountry());
+//console.log(getNameAndCountry(city1));
+
+//EXERCISE 5
+
+function* fizzbuzz() {
+    let count = 1;
+    while (count <= 100) {
+        if (count % 3 == 0) {
+            if (count % 5 == 0) {
+                yield "fizzbuzz";
+            } else {
+                yield "fizz";
+            }
+        } else {
+            if (count % 5 == 0) {
+                yield "buzz";
+            } else {
+                yield count;
+            }
+        }
+        ++count;
+    }
+}
+
+for (const num of fizzbuzz()) {
+    console.log("num: ", num);
+}
+
+//EXERCISE 6
+let arr = [7, 14, 21];
+
+function* generator(arr) {
+    const newArray = [...reverse(arr)];
+
+    yield newArray;
+}
+
+console.log(newArray);
+//const it = generator();
+//const val = it.next();
+
+//const val = it.next();
+//console.log(val);
+
+//BONUS EXERCISE
