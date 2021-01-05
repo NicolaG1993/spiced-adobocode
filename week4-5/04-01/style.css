@@ -80,6 +80,11 @@ img {
     max-width: 330px;
     display: inline-block;
     margin: 0;
+    transition: 0.2s ease;
+}
+
+.results-container > div > a > p:hover {
+    color: rgb(80, 238, 93);
 }
 
 #more-button {

@@ -112,9 +112,6 @@
 
                             console.log(response.offset);
                         },
-
-                        // response.offset += 20;
-                        //     console.log(response.offset);
                     });
                 });
                 //
@@ -143,4 +140,4 @@
 // If its value is null, this means that there are no more results - hide the more button *
 // If its not null, this means that there ARE results - show the more button *
 // When you click the more button, you are going to make a second ajax request to the next url (nextUrl)
-// Before you make a request to that URL you need to replace the spotify url with the spicedify url, so you don't get a 401 / Unauthorized
+// Before you make a request to that URL you need to replace the spotify url with the spicedify url, so you don't get a 401 / Unauthorized *
