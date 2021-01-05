@@ -8,16 +8,16 @@
 
     //SUBMIT INPUT AND FIRST RESPONSE
     $(".submit-button").on("click", function () {
-        showResults("https://spicedify.herokuapp.com/spotify");
+        requestResults("https://spicedify.herokuapp.com/spotify");
     });
 
     //MORE BUTTON EVENT
     moreBtn.on("click", function () {
-        showResults(nextUrl);
+        requestResults(nextUrl);
     });
 
     //CALLBACK TO REQUEST RESULTS
-    function showResults(link) {
+    function requestResults(link) {
         $.ajax({
             method: "GET",
             url: link,
@@ -57,16 +57,6 @@
         });
     }
 
-    //CALLBACK TO SET THE URL OF THE NEXT RESULTS
-    function setNextUrl(url) {
-        nextUrl =
-            url &&
-            url.replace(
-                "api.spotify.com/v1/search",
-                "spicedify.herokuapp.com/spotify"
-            );
-    }
-
     //CALLBACK TO SET AND GET THE HTML OF THE RESULTS/ITEMS
     function getResultsHtml(items) {
         var resultsHtml = "";
@@ -90,6 +80,16 @@
                 "</a></div>";
         }
         return resultsHtml;
+    }
+
+    //CALLBACK TO SET THE URL OF THE NEXT RESULTS
+    function setNextUrl(url) {
+        nextUrl =
+            url &&
+            url.replace(
+                "api.spotify.com/v1/search",
+                "spicedify.herokuapp.com/spotify"
+            );
     }
 
     //CALLBACK TO CHECK IF USER HAVE SCROLLED TO THE BOTTOM OF THE PAGE
