@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Handlebars - Ex1</title>
+    </head>
+    <body>
+        <h1>Templating Rocks! 🤘🏻</h1>
+        <div class="authors-info"></div>
+
+        <script id="authorsID" type="text/x-handlebars-template">
+            {{#authors}}
+            <div class="card">
+                <h2>
+                    {{name}}
+                </h2>
+                <p>
+                    ({{born}} - {{died}})
+                </p>
+                <img src={{photo}}>
+                <h3>Top 3:</h3>
+                <ol>
+                    {{#selectedWritings}}
+                    <li>{{.}}</li>
+                    {{/selectedWritings}}
+                </ol>
+                <h4>Quote:</h4>
+                <p>"{{quote}}"</p>
+            </div>
+            {{/authors}}
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
