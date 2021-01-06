@@ -87,12 +87,14 @@ for (const num of fizzbuzz()) {
 let arr = [7, 14, 21];
 
 function* generator(arr) {
-    const newArray = [...reverse(arr)];
+    const newArray = [...arr];
 
-    yield newArray;
+    yield newArray.reverse();
 }
 
-console.log(newArray);
+const clone = generator();
+console.log(clone.next());
+
 //const it = generator();
 //const val = it.next();
 
