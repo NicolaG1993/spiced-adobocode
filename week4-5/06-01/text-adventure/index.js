@@ -1,3 +1,6 @@
+const readline = require("readline");
+const chalk = require("chalk");
+
 const story = {
     q: "Welcome to The Land Of Wizards! Would you like to play?",
     answers: {
@@ -9,7 +12,7 @@ const story = {
                     q:
                         "There's a scary wizard! He asks you a tough question. What's 1+1?",
                     answers: {
-                        2: "congratulations!",
+                        2: chalk.bgGreen("congratulations!"),
                     },
                 },
                 right: "This was not the right choice. Goodbye!",
@@ -18,9 +21,6 @@ const story = {
         no: "Alright then. Enjoy your day!",
     },
 };
-
-const readline = require("readline");
-const chalk = require("chalk");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -44,15 +44,18 @@ const rl = readline.createInterface({
 engine(story);
 
 function engine(obj) {
-    rl.question(obj.q, (answer) => {
+    const question = `${chalk.bgBlueBright(obj.q)} ${chalk.blueBright(
+        "[ " + Object.keys(obj.answers).join(" | ") + " ]"
+    )}\n`;
+    rl.question(question, (answer) => {
         if (!obj.answers[answer]) {
             // there is no matching property
             // that means the user typed an invalid answer
-            console.log(chalk.red("You are not cooperating!"));
+            console.log(chalk.bgGray("You are not cooperating!"));
             engine(obj);
         }
         if (typeof obj.answers[answer] == "string") {
-            console.log(chalk.green(obj.answers[answer]));
+            console.log(chalk.bgRed(obj.answers[answer]));
             rl.close();
         } else if (typeof obj.answers[answer] == "object") {
             engine(obj.answers[answer]);
