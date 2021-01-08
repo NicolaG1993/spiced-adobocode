@@ -88,7 +88,7 @@ let finalData = fs.writeFileSync(
     JSON.stringify(finalObj, null, 4)
 );
 
-console.log(JSON.stringify(finalData)); //why do i get undefined?
+console.log(finalData); //why do i get undefined? //perché creo un nuovo file wowo!!
 
 //PART 3
 
