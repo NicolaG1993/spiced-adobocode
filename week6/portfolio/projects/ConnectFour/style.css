@@ -1,0 +1,373 @@
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 100px 40px 0 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+    /* background-image: url("assets/fluo.jpg"); */
+    /* background-image: url("https://designshack.net/wp-content/uploads/background-textures.png"); */
+    background-image: url("assets/sub.jpg");
+    background-size: cover;
+    height: 100vh;
+    color: whitesmoke;
+    background-color: black;
+}
+
+/* HEADER */
+header {
+    position: absolute;
+    width: 100%;
+    /* background: lightblue; */
+
+    top: 0;
+    left: 0;
+    height: 80px;
+    padding: 20px 40px;
+}
+
+h1 {
+    float: left;
+    margin: 0;
+}
+
+.btn {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 20px 40px;
+    text-align: center;
+    transition: 2s;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 30pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GAME */
+main {
+    max-width: 750px;
+    float: left;
+    margin-right: 50px;
+}
+
+.handBox {
+    /* background: slateblue; */
+    height: 100px;
+}
+
+.handCont {
+    position: relative;
+    left: 0;
+}
+
+.preChip {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    position: relative;
+    transform: translateY(-82%);
+    left: 68px;
+    z-index: 5;
+}
+
+#hand {
+    position: relative;
+    height: 40px;
+    margin: 30px 0;
+    z-index: 50;
+}
+
+.arrowBox {
+    /* background: slateblue; */
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    display: flex;
+}
+
+.arrowColumn {
+    width: 86px;
+}
+
+.board {
+    display: flex;
+    z-index: 51;
+    position: relative;
+}
+
+.column {
+    border: 3px solid rgb(39, 67, 151);
+    background-color: dodgerblue;
+    color: dodgerblue;
+}
+
+.slot {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hole {
+    border: 3px solid rgb(39, 67, 151);
+    background: black;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.player1 .hole {
+    background: indianred;
+}
+
+.player2 .hole {
+    background: khaki;
+}
+
+/* SIDE SECTION */
+.sideBar {
+    /* background: teal; */
+    height: 600px;
+    padding: 40px;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* .player1Score {
+    float: left;
+    max-width: 50%;
+}
+.player2Score {
+    float: right;
+    max-width: 50%;
+} */
+
+.scores {
+    width: 100%;
+}
+
+/* NAV */
+/* nav {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    background: tomato;
+    top: 0;
+    right: 0;
+
+    transform: translateX(100%);
+} */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    visibility: hidden;
+    z-index: 200;
+
+    opacity: 0;
+    transition: visibility 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+nav {
+    position: absolute;
+    background-color: rgb(15, 61, 160);
+    height: 100vh;
+    width: 25%;
+    top: 0;
+    right: 0;
+    z-index: 201;
+
+    transform: translateX(100%);
+    transition: transform 2s;
+}
+
+ul {
+    margin-top: 160px;
+}
+
+li {
+    display: block;
+    margin: 30px 0 0 0;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 21px;
+    transition: 0.3s ease-in;
+}
+
+li:hover {
+    /* text-decoration: underline; */
+    /* font-style: italic; */
+    font-size: 22px;
+}
+
+/* COLOR PICKER */
+.colorsCont {
+    position: absolute;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 201;
+    right: 15px;
+    top: 50%;
+    transform: translateX(180%);
+    border: 2px solid whitesmoke;
+    border-radius: 20px;
+    transition: 0.8s ease-out;
+}
+
+.skin {
+    position: relative;
+    background: chartreuse;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skin:hover {
+    border: 3px solid whitesmoke;
+}
+
+.a1 {
+    background: indianred;
+}
+
+.a2 {
+    background: khaki;
+}
+
+.a3 {
+    background: turquoise;
+}
+
+.a4 {
+    background: hotpink;
+}
+
+.a5 {
+    background: lawngreen;
+}
+
+.b1 {
+    background: turquoise;
+}
+
+.b2 {
+    background: khaki;
+}
+
+.b3 {
+    background: turquoise;
+}
+
+.b4 {
+    background: turquoise;
+}
+
+.b5 {
+    background: turquoise;
+}
+
+.c1 {
+    background: turquoise;
+}
+
+.c2 {
+    background: khaki;
+}
+
+.c3 {
+    background: turquoise;
+}
+
+.c4 {
+    background: turquoise;
+}
+
+.c5 {
+    background: turquoise;
+}
+
+/* VICTORY */
+.victory {
+    position: absolute;
+    z-index: 200;
+
+    top: 0;
+    left: 0;
+
+    text-align: center;
+    visibility: hidden;
+}
+
+.overlayWin {
+    background: black;
+
+    opacity: 50%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.alertBox {
+    position: absolute;
+    margin: auto;
+
+    text-align: center;
+    width: 350px;
+    height: 250px;
+    color: black;
+    background: cornsilk;
+    border-radius: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 20px 0 10px 0;
+    width: 60%;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(63, 63, 63);
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/* JS STYLES */
+.on {
+    transform: translateX(0%);
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
