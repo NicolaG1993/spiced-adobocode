@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 // console.log("path: ", path); //obj
+const { projectOverviewHtml } = require("./generateProjOverview");
 
 const contentType = {
     ".html": "text/html",
@@ -71,29 +72,48 @@ http.createServer((req, res) => {
             const stream = fs.createReadStream(filePath);
             stream.pipe(res);
             //creiamo uno stream e lo logghiamo con pipe(la nostra response) //funziona come write-end
+            stream.on("error", (err) => {
+                console.log("err in readStreamHtml: ", err);
+                res.statusCode = 500; // internal server error
+                return res.end();
+            });
         } else {
-            console.log("it is a directory");
-            console.log("requesting filePath: ", filePath);
+            //console.log("it is a directory");
+            //console.log("requesting filePath: ", filePath);
+
+            // if (req.url == "/favicon.ico") {
+            //     console.log("leave us alone with this Favicon");
+            //     res.statusCode = 405; // status: not allowed
+            //     return res.end();
+            // }
 
             if (req.url.endsWith("/")) {
-                const readStreamHtml = fs.createReadStream(
-                    filePath + "index.html"
-                );
                 res.setHeader("ContentType", "text/html");
-                readStreamHtml.pipe(res);
-                readStreamHtml.on("error", (err) => {
-                    console.log("err in readStreamHtml: ", err);
-                    res.statusCode = 500; // internal server error
-                    return res.end();
-                });
+                if (req.url == "/") {
+                    res.setHeader("ContentType", "text/html");
+                    res.write(projectOverviewHtml());
+                    res.end();
+                } else {
+                    const readStreamHtml = fs.createReadStream(
+                        filePath + "/index.html"
+                    );
+
+                    readStreamHtml.pipe(res);
+                    readStreamHtml.on("error", (err) => {
+                        console.log("err in readStreamHtml: ", err);
+                        res.statusCode = 500; // internal server error
+                        return res.end();
+                    });
+                }
             } else {
-                console.log("about to redirect....");
+                //console.log("about to redirect....");
                 res.setHeader("Location", req.url + "/");
+                //res.write(projectOverviewHtml());
                 res.statusCode = 302; //redirect?
                 res.end();
             }
         }
     });
 
-    console.log("legit request made it here :D");
+    //console.log("legit request made it here :D");
 }).listen(8080, () => console.log("server is listening..."));
