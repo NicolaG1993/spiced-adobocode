@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: rgb(14, 14, 14);
+    color: ghostwhite;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+::selection {
+    background-color: rgb(80, 238, 93);
+}
+
+/*SEARCH FIELDS*/
+
+.search-fields {
+    margin-top: 100px;
+}
+
+#logo {
+    background-image: url("https://1000marche.net/wp-content/uploads/2020/03/spotify-logo-768x432.png");
+    background-size: cover;
+    width: 500px;
+    height: 250px;
+    display: inline-block;
+    position: relative;
+}
+
+input {
+    width: 350px;
+}
+
+select {
+    width: 100px;
+}
+
+button {
+    width: 100px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*RESULTS*/
+
+.results-container {
+    width: 550px;
+    margin: auto;
+    text-align: start;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.results-container > div {
+    margin-bottom: 40px;
+    font-family: Helvetica;
+    font-size: large;
+    font-weight: bold;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.results-container > div > a > p {
+    max-width: 330px;
+    display: inline-block;
+    margin: 0;
+    transition: 0.2s ease;
+}
+
+.results-container > div > a > p:hover {
+    color: rgb(80, 238, 93);
+}
+
+#more-button {
+    display: inline-block;
+    border: 2.5px solid ghostwhite;
+    background: transparent;
+    color: ghostwhite;
+    width: 170px;
+    border-radius: 50px;
+    height: 30px;
+    margin-top: 20px;
+    transition: 0.5s ease;
+}
+
+#more-button:hover {
+    border: 2.5px solid transparent;
+    background: ghostwhite;
+    color: rgb(14, 14, 14);
+}
+
+.hide {
+    visibility: hidden;
+}

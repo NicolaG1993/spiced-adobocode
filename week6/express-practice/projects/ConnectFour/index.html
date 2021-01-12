@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Connect 4 | © NGDesign</title>
+    </head>
+    <body>
+        <header>
+            <h1>Connect 4</h1>
+            <div class="btn open">­­≡</div>
+        </header>
+
+        <div class="overlay"></div>
+
+        <main>
+            <div class="handBox">
+                <div class="handCont">
+                    <img
+                        src="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Hands-PNG/Human_Hand_PNG_Clipart_Picture.png?m=1507172105"
+                        alt="handPic"
+                        id="hand"
+                    />
+                    <div class="preChip player1">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="board">
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="slot row0">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row1">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row2">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row3">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row4">
+                        <div class="hole"></div>
+                    </div>
+                    <div class="slot row5">
+                        <div class="hole"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrowBox">
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+                <div class="arrowColumn"></div>
+            </div>
+        </main>
+
+        <section class="sideBar">
+            <h3 class="scores">Score</h3>
+            <h4 id="player1Score">0</h4>
+            <h4 id="player2Score">0</h4>
+        </section>
+
+        <nav>
+            <ul>
+                <li class="continue">Continue</li>
+                <li class="colorPicker">Color Picker</li>
+                <li class="continue reset">Restart Game</li>
+            </ul>
+        </nav>
+
+        <div class="colorsCont">
+            <div class="colorsCol">
+                <div class="skin a1"></div>
+                <div class="skin a2"></div>
+                <div class="skin a3"></div>
+                <div class="skin a4"></div>
+                <div class="skin a5"></div>
+            </div>
+
+            <div class="colorsCol">
+                <div class="skin b1"></div>
+                <div class="skin b2"></div>
+                <div class="skin b3"></div>
+                <div class="skin b4"></div>
+                <div class="skin b5"></div>
+            </div>
+
+            <div class="colorsCol">
+                <div class="skin c1"></div>
+                <div class="skin c2"></div>
+                <div class="skin c3"></div>
+                <div class="skin c4"></div>
+                <div class="skin c5"></div>
+            </div>
+        </div>
+
+        <section class="victory">
+            <div class="overlayWin"></div>
+            <div class="alertBox">
+                <h3 class="winner"></h3>
+                <p class="victoryStyle"></p>
+                <button class="playAgain">Play Again</button>
+                <button class="reset">Restart Game</button>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
