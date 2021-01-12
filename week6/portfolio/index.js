@@ -39,7 +39,7 @@ http.createServer((req, res) => {
             return res.end();
         }
         if (stats.isFile()) {
-            console.log("it is a file");
+            console.log("it is a file: ", req.url);
             res.setHeader("Content-Type", contentType[path.extname(filePath)]);
             const stream = fs.createReadStream(filePath);
             stream.pipe(res);
@@ -49,7 +49,7 @@ http.createServer((req, res) => {
                 return res.end();
             });
         } else {
-            console.log("it is a directory");
+            console.log("it is a directory: ", req.url);
 
             if (req.url.endsWith("/")) {
                 res.setHeader("ContentType", "text/html");
