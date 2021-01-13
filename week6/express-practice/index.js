@@ -5,8 +5,14 @@ const { projectOverviewHtml } = require("./generateProjOverview");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use((req, res, next) => {
-    console.log(`${req.method} request was made to ${req.url}`);
+    console.log("the route is:", req.url);
+    console.log("req.cookies is:", req.cookies);
+    next();
+});
+app.use((req, res, next) => {
+    // console.log(`${req.method} request was made to ${req.url}`);
 
     if (req.url != "/cookies") {
         console.log("REQ", req.url);
@@ -15,7 +21,10 @@ app.use((req, res, next) => {
             //res.redirect(theCookie.reqURL);
             next();
         } else {
-            res.cookie("reqURL", req.url); //forse request dir + /
+            if (req.url != "/style.css") {
+                res.cookie("reqURL", req.url); //forse request dir + /
+            }
+
             res.redirect("/cookies");
         }
     } else {
