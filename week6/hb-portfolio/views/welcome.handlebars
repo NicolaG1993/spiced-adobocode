@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hb Portfolio</title>
+</head>
+<body>
+    <h1>Welcome to my Portfolio!</h1>
+    <h3>Hello {{cohort}} whats uup? ☀</h3>
+    <section>
+        {{#myData}}
+        <div>
+            <a href="/{{directory}}">
+        <img src='/{{directory}}/capture.png'> <p>{{title}}</p>
+        </a>
+        </div>
+        {{/myData}}
+    </section>
+</body>
+</html>
