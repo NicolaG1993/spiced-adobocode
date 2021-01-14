@@ -1,8 +1,14 @@
-<section>
-    {{>projList}}
+<section class="sidelist">
+    <h3>My Projects</h3>
+    {{>projList projInfos=true}}
 </section>
-<main>
+<section class="infos">
     <h1>{{title}}</h1>
+    <img src='/{{directory}}/capture.png'>
     <h3>description: </h3>
     <p>{{description}}</p>
-</main>
+    <a href="/{{directory}}">
+        <button>GO</button>
+    </a>
+    
+</section>

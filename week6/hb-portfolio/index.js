@@ -34,15 +34,9 @@ app.get("/about", (req, res) => {
 
 app.get("/projects/:project", (req, res) => {
     const project = req.params.project;
-    console.log("project: ", project);
-    // you can also use destructuring:
-    // const { project } = req.params;
 
-    const selectedProject = myData.find(
-        (item) => item.directory == project
-        //console.log("item: ", item);
-    );
-    //console.log("myData: ", myData);
+    const selectedProject = myData.find((item) => item.directory == project);
+
     console.log("selected project: ", selectedProject);
 
     if (!selectedProject) {
@@ -52,6 +46,8 @@ app.get("/projects/:project", (req, res) => {
             layout: "main",
             title: selectedProject.title,
             description: selectedProject.description,
+            directory: selectedProject.directory,
+            myData,
         });
     }
 });
