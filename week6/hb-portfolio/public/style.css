@@ -61,8 +61,8 @@ footer {
 /*DIVS*/
 
 div {
-    height: 250px;
     margin-right: 50px;
+    margin-bottom: 10px;
     text-align: center;
 }
 

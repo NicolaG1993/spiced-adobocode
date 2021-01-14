@@ -1,14 +1,20 @@
 [
     {
         "title": "Connect 4",
-        "directory": "ConnectFour"
+        "subtitle": "Connect 4",
+        "directory": "ConnectFour",
+        "description": "Lorem Ipsum"
     },
     {
-        "title": "I ♥ Hamburgers",
-        "directory": "HamburgerBtn"
+        "title": "Hamburger Button",
+        "subtitle": "I ♥ Hamburgers",
+        "directory": "HamburgerBtn",
+        "description": "Lorem Ipsum"
     },
     {
-        "title": "Time for some music? ♪",
-        "directory": "Spotify"
+        "title": "Spotify API",
+        "subtitle": "Time for some music? ♪",
+        "directory": "Spotify",
+        "description": "Lorem Ipsum"
     }
 ]
