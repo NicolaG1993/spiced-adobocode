@@ -9,7 +9,9 @@ app.set("view engine", "handlebars");
 app.use(express.static("./public"));
 app.use(express.static("./projects"));
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => res.redirect("/projects"));
+
+app.get("/projects", (req, res) => {
     res.render("welcome", {
         layout: "main",
         cohort: "Adobo",
