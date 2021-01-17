@@ -6,10 +6,27 @@
     //console.log(headlines);
     //console.log(left);
 
+    /*
+    $.ajax({
+        url: "data.json",
+        method: "GET",
+
+        success: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                //console.log(data[i]);
+                //console.log(data[i].url);
+
+                headlines.append(
+                    '<a href="' + data[i].url + '">' + data[i].title + "</a>"
+                );
+            }
+        },
+    });
+*/
     var links;
     var html = "";
     $.ajax({
-        url: "/data.json",
+        url: "data.json",
         method: "GET",
 
         success: function (data) {

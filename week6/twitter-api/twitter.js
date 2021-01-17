@@ -24,11 +24,11 @@ module.exports.getToken = function (callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            console.log("body: ", body);
+            //console.log("body: ", body);
         });
         res.on("end", () => {
             const parsedBody = JSON.parse(body);
-            console.log("parsedBody: ", parsedBody);
+            //console.log("parsedBody: ", parsedBody);
             callback(null, parsedBody.access_token);
         });
     }
@@ -63,11 +63,11 @@ module.exports.getTweets = function (bearerToken, callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            console.log("body: ", body);
+            //console.log("body: ", body);
         });
         res.on("end", () => {
             const tweets = JSON.parse(body);
-            console.log("parsedBody(tweets): ", tweets);
+            //console.log("parsedBody(tweets): ", tweets);
             callback(null, tweets);
         });
     }
@@ -81,21 +81,24 @@ module.exports.filterTweets = function (tweets) {
     // the format needed for ticker (i.e. an array of objects, containing 2 properties)
     // This is also for you to complete.
     // n.b. this process is SYNCHRONOUS
-    const newArray = tweets.filter((tweet) => tweet.entities.urls);
-    console.log("filtered.tweets: ", newArray);
-    // for (let i = 0; i < tweets.length; i++) {
-    //     if (tweets[i].entities.urls.length == 1) {
 
-    //     }
-    //     const element = tweets[i].entities.urls;
-
-    // }
+    const newArray = tweets.filter((tweet) => tweet.entities.urls.length == 1);
+    //console.log("filtered.tweets: ", newArray);
 
     let arr = [];
-    for (let i = 0; i < tweets.length; i++) {
-        const obj = {`"${tweets[i].full_text}":` ``}
-        arr.push[obj];
+    for (let i = 0; i < newArray.length; i++) {
+        const tweetText = newArray[i].full_text;
+
+        const tweetURL = newArray[i].entities.urls[0].url;
+        const mediaURL = newArray[i].entities.media[0].url;
+        //const finalText = tweetText.split(mediaURL).join("").trim();
+        const finalText = tweetText.replace(mediaURL, "").trim();
+
+        const obj = { url: tweetURL, title: finalText };
+
+        arr.push(obj);
     }
 
-    //console.log("tweets.full_text: ", tweets.full_text);
+    console.log("arr: ", arr);
+    return arr;
 };
