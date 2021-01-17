@@ -6,7 +6,7 @@ const { twitterKey, twitterSecret } = require("./secrets");
 module.exports.getToken = function (callback) {
     const creds = `${twitterKey}:${twitterSecret}`;
     const encodedCreds = Buffer.from(creds).toString("base64");
-    console.log("creds: ", creds);
+    //console.log("creds: ", creds);
 
     const config = {
         method: "POST",
@@ -26,11 +26,11 @@ module.exports.getToken = function (callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            console.log("body: ", body);
+            //console.log("body: ", body);
         });
         res.on("end", () => {
             const parsedBody = JSON.parse(body);
-            console.log("parsedBody: ", parsedBody);
+            //console.log("parsedBody: ", parsedBody);
             callback(null, parsedBody.access_token);
         });
     }
@@ -46,6 +46,35 @@ module.exports.getTweets = function (bearerToken, callback) {
     // This is also asynchronous -> hence the callback!
     // We  need to send the bearer token EVERY time we do this!
     // This is for you to complete yourselves.
+
+    const config = {
+        method: "GET",
+        host: "api.twitter.com",
+        path: "???",
+        headers: {
+            Authorization: `???`,
+        },
+    };
+
+    function httpsRequestCallback(res) {
+        if (res.statusCode !== 200) {
+            callback(res.statusCode);
+            return;
+        }
+        let body = "";
+        res.on("data", (chunk) => {
+            body += chunk;
+            //console.log("body: ", body);
+        });
+        res.on("end", () => {
+            const tweets = JSON.parse(body);
+            //console.log("parsedBody: ", parsedBody);
+            callback(null, tweets);
+        });
+    }
+
+    const req = https.request(config, httpsRequestCallback);
+    req.end();
 };
 
 module.exports.filterTweets = function (tweets) {
