@@ -1,7 +1,5 @@
 const https = require("https");
 const { twitterKey, twitterSecret } = require("./secrets");
-// console.log("twitterKey: ", twitterKey);
-// console.log("twitterSecret: ", twitterSecret);
 
 module.exports.getToken = function (callback) {
     const creds = `${twitterKey}:${twitterSecret}`;
@@ -26,11 +24,11 @@ module.exports.getToken = function (callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            //console.log("body: ", body);
+            console.log("body: ", body);
         });
         res.on("end", () => {
             const parsedBody = JSON.parse(body);
-            //console.log("parsedBody: ", parsedBody);
+            console.log("parsedBody: ", parsedBody);
             callback(null, parsedBody.access_token);
         });
     }
@@ -50,9 +48,10 @@ module.exports.getTweets = function (bearerToken, callback) {
     const config = {
         method: "GET",
         host: "api.twitter.com",
-        path: "???",
+        path:
+            "/1.1/statuses/user_timeline.json?screen_name=TheOnion&tweet_mode=extended",
         headers: {
-            Authorization: `???`,
+            Authorization: `Bearer ${bearerToken}`,
         },
     };
 
@@ -64,11 +63,11 @@ module.exports.getTweets = function (bearerToken, callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            //console.log("body: ", body);
+            console.log("body: ", body);
         });
         res.on("end", () => {
             const tweets = JSON.parse(body);
-            //console.log("parsedBody: ", parsedBody);
+            console.log("parsedBody(tweets): ", tweets);
             callback(null, tweets);
         });
     }
@@ -82,4 +81,21 @@ module.exports.filterTweets = function (tweets) {
     // the format needed for ticker (i.e. an array of objects, containing 2 properties)
     // This is also for you to complete.
     // n.b. this process is SYNCHRONOUS
+    const newArray = tweets.filter((tweet) => tweet.entities.urls);
+    console.log("filtered.tweets: ", newArray);
+    // for (let i = 0; i < tweets.length; i++) {
+    //     if (tweets[i].entities.urls.length == 1) {
+
+    //     }
+    //     const element = tweets[i].entities.urls;
+
+    // }
+
+    let arr = [];
+    for (let i = 0; i < tweets.length; i++) {
+        const obj = {`"${tweets[i].full_text}":` ``}
+        arr.push[obj];
+    }
+
+    //console.log("tweets.full_text: ", tweets.full_text);
 };
