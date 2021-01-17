@@ -4,7 +4,6 @@ const { twitterKey, twitterSecret } = require("./secrets");
 module.exports.getToken = function (callback) {
     const creds = `${twitterKey}:${twitterSecret}`;
     const encodedCreds = Buffer.from(creds).toString("base64");
-    //console.log("creds: ", creds);
 
     const config = {
         method: "POST",
@@ -24,11 +23,10 @@ module.exports.getToken = function (callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            //console.log("body: ", body);
         });
         res.on("end", () => {
             const parsedBody = JSON.parse(body);
-            //console.log("parsedBody: ", parsedBody);
+
             callback(null, parsedBody.access_token);
         });
     }
@@ -38,13 +36,6 @@ module.exports.getToken = function (callback) {
 };
 
 module.exports.getTweets = function (bearerToken, callback) {
-    // hint: stessa metodologia di getToken //accedi data (tweets u get) //
-    // Once we have our bearerToken we can get the tweets from twitter
-    // with this function.
-    // This is also asynchronous -> hence the callback!
-    // We  need to send the bearer token EVERY time we do this!
-    // This is for you to complete yourselves.
-
     const config = {
         method: "GET",
         host: "api.twitter.com",
@@ -63,11 +54,10 @@ module.exports.getTweets = function (bearerToken, callback) {
         let body = "";
         res.on("data", (chunk) => {
             body += chunk;
-            //console.log("body: ", body);
         });
         res.on("end", () => {
             const tweets = JSON.parse(body);
-            //console.log("parsedBody(tweets): ", tweets);
+
             callback(null, tweets);
         });
     }
@@ -77,13 +67,7 @@ module.exports.getTweets = function (bearerToken, callback) {
 };
 
 module.exports.filterTweets = function (tweets) {
-    // Once we have the tweets we need, this function will sort them into
-    // the format needed for ticker (i.e. an array of objects, containing 2 properties)
-    // This is also for you to complete.
-    // n.b. this process is SYNCHRONOUS
-
     const newArray = tweets.filter((tweet) => tweet.entities.urls.length == 1);
-    //console.log("filtered.tweets: ", newArray);
 
     let arr = [];
     for (let i = 0; i < newArray.length; i++) {
@@ -91,8 +75,11 @@ module.exports.filterTweets = function (tweets) {
 
         const tweetURL = newArray[i].entities.urls[0].url;
         const mediaURL = newArray[i].entities.media[0].url;
-        //const finalText = tweetText.split(mediaURL).join("").trim();
-        const finalText = tweetText.replace(mediaURL, "").trim();
+
+        const finalText = tweetText
+            .replace(mediaURL, "")
+            .replace(tweetURL, "")
+            .trim();
 
         const obj = { url: tweetURL, title: finalText };
 
