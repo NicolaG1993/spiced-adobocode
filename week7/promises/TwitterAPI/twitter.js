@@ -45,7 +45,7 @@ module.exports.getTweets = function (bearerToken, tweetSource) {
         const config = {
             method: "GET",
             host: "api.twitter.com",
-            path: `/1.1/statuses/user_timeline.json?screen_name=${tweetSource}&tweet_mode=extended&count=2`,
+            path: `/1.1/statuses/user_timeline.json?screen_name=${tweetSource}&tweet_mode=extended&count=20`,
             headers: {
                 Authorization: `Bearer ${bearerToken}`,
             },
