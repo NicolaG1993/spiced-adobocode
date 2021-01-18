@@ -1,0 +1,81 @@
+{
+    ".gitignore": 12,
+    "files": {
+        "README.md": 12,
+        "part1": {
+            "a": {
+                "images": {
+                    "cats.png": 573350,
+                    "kitty1_150x150.jpg": 9279,
+                    "kitty2_150x150.jpg": 14355,
+                    "kitty3_150x150.jpg": 13387
+                },
+                "index.html": 241,
+                "stylesheet.css": 40
+            },
+            "b": {
+                "images": {
+                    "boxes.png": 156804
+                },
+                "index.html": 243,
+                "stylesheet.css": 39
+            }
+        },
+        "part2": {
+            "index.html": 160,
+            "script.js": 1998
+        }
+    },
+    "files.json": 2091,
+    "index.js": 1553,
+    "node_modules": {
+        "ansi-styles": {
+            "index.d.ts": 6349,
+            "index.js": 4139,
+            "license": 1109,
+            "package.json": 2196,
+            "readme.md": 4327
+        },
+        "chalk": {
+            "index.d.ts": 8899,
+            "license": 1109,
+            "package.json": 2262,
+            "readme.md": 11949,
+            "source": {
+                "index.js": 6075,
+                "templates.js": 3367,
+                "util.js": 1035
+            }
+        },
+        "color-convert": {
+            "CHANGELOG.md": 1417,
+            "LICENSE": 1087,
+            "README.md": 2853,
+            "conversions.js": 17040,
+            "index.js": 1708,
+            "package.json": 1945,
+            "route.js": 2257
+        },
+        "color-name": {
+            "LICENSE": 1085,
+            "README.md": 384,
+            "index.js": 4617,
+            "package.json": 1484
+        },
+        "has-flag": {
+            "index.d.ts": 684,
+            "index.js": 330,
+            "license": 1109,
+            "package.json": 1820,
+            "readme.md": 1600
+        },
+        "supports-color": {
+            "browser.js": 67,
+            "index.js": 2748,
+            "license": 1109,
+            "package.json": 1986,
+            "readme.md": 2294
+        }
+    },
+    "package-lock.json": 1864
+}

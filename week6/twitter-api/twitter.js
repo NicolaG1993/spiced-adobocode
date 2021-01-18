@@ -74,7 +74,11 @@ module.exports.filterTweets = function (tweets) {
         const tweetText = newArray[i].full_text;
 
         const tweetURL = newArray[i].entities.urls[0].url;
-        const mediaURL = newArray[i].entities.media[0].url;
+        let mediaURL;
+
+        if (newArray[i].entities.media) {
+            mediaURL = newArray[i].entities.media[0].url;
+        }
 
         const finalText = tweetText
             .replace(mediaURL, "")
