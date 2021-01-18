@@ -11,13 +11,28 @@ app.get("/data.json", (req, res) => {
     // 2. Get the tweets from twitter using the bearer token.
     getToken()
         .then((bearerToken) => {
-            console.log("bearerToken: ", bearerToken);
-            return getTweets(bearerToken);
+            //console.log("bearerToken: ", bearerToken);
+            return Promise.all([
+                getTweets(bearerToken, "bethesda"),
+                getTweets(bearerToken, "Konami"),
+                getTweets(bearerToken, "SquareEnix"),
+            ]);
         })
         .then((tweets) => {
-            console.log("tweets: ", tweets);
+            //console.log("tweets: ", tweets);
+
+            const bethesda = tweets[0];
+            const konami = tweets[1];
+            const squareEnix = tweets[2];
+
+            const allTweets = [...bethesda, ...konami, ...squareEnix];
+
+            const sorted = allTweets.sort((a, b) => {
+                return new Date(b.created_at) - new Date(a.created_at);
+            });
+
             // 3. Filter & sort them into the correct format
-            const filteredTweets = filterTweets(tweets);
+            const filteredTweets = filterTweets(sorted);
             // 4. Send them back as JSON to ticker
             res.json(filteredTweets);
         })

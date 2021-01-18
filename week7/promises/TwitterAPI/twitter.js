@@ -40,13 +40,12 @@ module.exports.getToken = function () {
     });
 };
 
-module.exports.getTweets = function (bearerToken) {
+module.exports.getTweets = function (bearerToken, tweetSource) {
     return new Promise((resolve, reject) => {
         const config = {
             method: "GET",
             host: "api.twitter.com",
-            path:
-                "/1.1/statuses/user_timeline.json?screen_name=bethesda&tweet_mode=extended",
+            path: `/1.1/statuses/user_timeline.json?screen_name=${tweetSource}&tweet_mode=extended&count=2`,
             headers: {
                 Authorization: `Bearer ${bearerToken}`,
             },
@@ -78,8 +77,6 @@ module.exports.filterTweets = function (tweets) {
     let arr = [];
     for (let i = 0; i < newArray.length; i++) {
         const tweetText = newArray[i].full_text;
-
-        console.log("newArray[i].entities: ", newArray[i].entities);
 
         const tweetURL = newArray[i].entities.urls[0].url;
         let mediaURL;

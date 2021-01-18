@@ -27,6 +27,7 @@ const logSizes = (x) => {
                 }
             }
             return Promise.all(myArray);
+            //end the fn only when all asyncronous things are done
         })
         .catch((err) => console.log("error catched: ", err));
 };
