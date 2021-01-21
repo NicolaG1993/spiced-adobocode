@@ -28,5 +28,4 @@ SELECT * FROM actors;
 
 */
 
--- SELECT Oscars AS "Number of Oscars" FROM actors;
 
